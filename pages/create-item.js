@@ -7,7 +7,7 @@ import Web3 from  "web3";
 import {  nftaddress,nftmarketaddress} from '../config';
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json';
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json';
-import Image from 'next/Image'
+import Image from 'next/image'
 import { TransactionContext } from "../components/Connection";
 import { Web3Storage, getFilesFromPath } from 'web3.storage'
 import Loader from '../components/Loader'
