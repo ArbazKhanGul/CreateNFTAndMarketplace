@@ -140,8 +140,7 @@ async function createSale(url){
 
 
 
-    
-    
+
     let tokenId=tx.events.Transfer.returnValues.tokenId;
 
     let MarketContract=new web3.eth.Contract(Market.abi,nftmarketaddress);

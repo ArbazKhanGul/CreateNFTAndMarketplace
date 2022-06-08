@@ -63,9 +63,11 @@ let marketContract=new web3.eth.Contract(Market.abi,nftmarketaddress);
 
     //set the price
     const price = web3.utils.toWei(nft.price.toString(), 'ether');
-
+    
     //make the sale
+    console.log(nftaddress)
     const transaction = await marketContract.methods.createMarketSale(nftaddress, nft.tokenId).send({
+      from: currentAccount,
       value: price
     });
      

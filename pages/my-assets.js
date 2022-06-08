@@ -33,13 +33,12 @@ router.push('/');
 
   async function loadNFTs() {
 
-    let web3=new Web3(new Web3.providers.HttpProvider("https://eth-ropsten.alchemyapi.io/v2/KGFvNnL9smRBOFsDHk8z0-lWJ-PwtbmH"));
-
+    let web3=new Web3(window.ethereum);
    let nftContract=new web3.eth.Contract(NFT.abi,nftaddress);
     let marketContract=new web3.eth.Contract(Market.abi,nftmarketaddress);
 
 
-    const data = await marketContract.methods.fetchMyNFTs().call();
+    const data = await marketContract.methods.fetchMyNFTs().call({from :currentAccount});
     
     const items = await Promise.all(data.map(async i => {
       const tokenUri = await nftContract.methods.tokenURI(i.tokenId).call();
